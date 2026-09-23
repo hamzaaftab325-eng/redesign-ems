@@ -39,7 +39,11 @@ body.menu-open{overflow:hidden}
 
 /* Motion refinements only: preserve the approved resting layout and palette. */
 .menu-toggle{box-shadow:inset 0 0 0 1px var(--ink)}
+/* Default Menu hover/focus fill: yellow */
 .menu-toggle:before{background:var(--yellow)}
+/* When the fixed header is currently over the yellow section, use blue instead */
+.header:has(.brand[data-surface="yellow"]) .menu-toggle:before,
+.menu-toggle[data-surface="yellow"]:before{background:var(--blue)}
 .menu-toggle:is(:hover,:focus-visible){color:var(--ink)}
 .menu-toggle:focus-visible:before,.contact-cta:focus-visible:before{transform:translate(0,0)}
 .menu-toggle span,.menu-toggle i,.contact-cta span,.contact-cta b{display:inline-block}
