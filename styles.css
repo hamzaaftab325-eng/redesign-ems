@@ -39,7 +39,7 @@ body.menu-open{overflow:hidden}
 
 /* Motion refinements only: preserve the approved resting layout and palette. */
 .menu-toggle{box-shadow:inset 0 0 0 1px var(--ink)}
-.menu-toggle:before{background:var(--paper)}
+.menu-toggle:before{background:var(--yellow)}
 .menu-toggle:is(:hover,:focus-visible){color:var(--ink)}
 .menu-toggle:focus-visible:before,.contact-cta:focus-visible:before{transform:translate(0,0)}
 .menu-toggle span,.menu-toggle i,.contact-cta span,.contact-cta b{display:inline-block}
