@@ -9,6 +9,7 @@ let lenis,master,railTrigger,activeService=0,menuTween,menuClosing=false;
 let chapterTimes={},serviceTimes=[];
 const headerBrand=$('.header .brand');
 const brandSurfaces=$$('.hero,.impact,.contact,.services-intro');
+const menuYellowSurfaces=$$('.services-intro');
 function updateBrandContrast(){
  const logo=headerBrand.getBoundingClientRect();let surface='original';
  for(const section of brandSurfaces){
@@ -16,6 +17,14 @@ function updateBrandContrast(){
   if(r.left<logo.right&&r.right>logo.left&&r.top<logo.bottom&&r.bottom>logo.top){surface=section.classList.contains('services-intro')?'yellow':'blue';break;}
  }
  if(headerBrand.dataset.surface!==surface)headerBrand.dataset.surface=surface;
+
+ // Detect the surface under the Menu button independently from the logo.
+ const button=menuButton.getBoundingClientRect();let menuSurface='original';
+ for(const section of menuYellowSurfaces){
+  const r=section.getBoundingClientRect();
+  if(r.left<button.right&&r.right>button.left&&r.top<button.bottom&&r.bottom>button.top){menuSurface='yellow';break;}
+ }
+ if(menuButton.dataset.surface!==menuSurface)menuButton.dataset.surface=menuSurface;
 }
 let brandFrame=0;
 function scheduleBrandContrast(){if(!brandFrame)brandFrame=requestAnimationFrame(()=>{brandFrame=0;updateBrandContrast();});}
