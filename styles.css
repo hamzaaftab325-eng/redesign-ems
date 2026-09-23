@@ -36,3 +36,16 @@ body.menu-open{overflow:hidden}
 .header .brand[data-surface="blue"]:after{opacity:1;clip-path:inset(0 44% 0 0)}
 .header .brand[data-surface="yellow"]:after{opacity:1;clip-path:inset(0 0 0 56%)}
 .client-logo img,.client-logo:hover img{filter:none;opacity:1}
+
+/* Motion refinements only: preserve the approved resting layout and palette. */
+.menu-toggle{box-shadow:inset 0 0 0 1px var(--ink)}
+.menu-toggle:before{background:var(--paper)}
+.menu-toggle:is(:hover,:focus-visible){color:var(--ink)}
+.menu-toggle:focus-visible:before,.contact-cta:focus-visible:before{transform:translate(0,0)}
+.menu-toggle span,.menu-toggle i,.contact-cta span,.contact-cta b{display:inline-block}
+.values-follow .values-outgoing{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .work-tile-label>span:last-child{transition:transform .4s var(--ease)}
+ .work-tile:hover .work-tile-label>span:last-child{transform:translate(3px,-3px)}
+ .circle-link:active,.contact-cta:active,.menu-toggle:active{scale:.98}
+}
